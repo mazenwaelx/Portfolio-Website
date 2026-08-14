@@ -80,7 +80,7 @@ window.addEventListener('scroll', setActiveNav);
 // Scroll Reveal Animation
 // ================================
 function reveal() {
-    const reveals = document.querySelectorAll('.skill-category, .project-card, .cert-card, .stat-card');
+    const reveals = document.querySelectorAll('.skill-category, .project-card, .cert-card');
 
     reveals.forEach(element => {
         const windowHeight = window.innerHeight;
@@ -101,9 +101,9 @@ reveal(); // Initial check
 // Staggered Reveal & Scroll Progress
 // ================================
 // Apply incremental delay so cards animate in sequence
-const revealGroups = document.querySelectorAll('.projects-grid, .skills-grid, .cert-grid, .about-stats, .timeline');
+const revealGroups = document.querySelectorAll('.projects-grid, .skills-grid, .cert-grid, .timeline');
 revealGroups.forEach(group => {
-    const items = group.querySelectorAll('.project-card, .skill-category, .cert-card, .stat-card, .timeline-item');
+    const items = group.querySelectorAll('.project-card, .skill-category, .cert-card, .timeline-item');
     items.forEach((item, i) => {
         item.style.transitionDelay = `${Math.min(i * 80, 400)}ms`;
     });
@@ -169,85 +169,6 @@ if (heroTitle) {
         typeTitle();
     }, 1000);
 }
-
-// ================================
-// Count-Up Animation for Stats
-// ================================
-function animateCount(el) {
-    const target = parseFloat(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const decimals = (el.dataset.target.split('.')[1] || '').length;
-    const duration = 1600;
-    const start = performance.now();
-
-    function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const value = (target * eased).toFixed(decimals);
-        el.textContent = value + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = target + suffix;
-    }
-    requestAnimationFrame(tick);
-}
-
-const statNumbers = document.querySelectorAll('.stat-card h3[data-target]');
-const statObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCount(entry.target);
-            statObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-statNumbers.forEach(el => statObserver.observe(el));
-
-// ================================
-// Stats Counter Animation
-// ================================
-function animateCounter(element, target, suffix = '') {
-    let current = 0;
-    const increment = target / 50;
-    const duration = 2000;
-    const stepTime = duration / 50;
-
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current) + suffix;
-    }, stepTime);
-}
-
-function observeStats() {
-    const statCards = document.querySelectorAll('.stat-card h3');
-    let animated = false;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animated) {
-                animated = true;
-                statCards.forEach(card => {
-                    const text = card.textContent;
-                    const number = parseInt(text);
-                    const suffix = text.replace(/[0-9]/g, '');
-                    card.textContent = '0' + suffix;
-                    animateCounter(card, number, suffix);
-                });
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const aboutStats = document.querySelector('.about-stats');
-    if (aboutStats) {
-        observer.observe(aboutStats);
-    }
-}
-
-observeStats();
 
 // ================================
 // Back to Top Button (optional)
