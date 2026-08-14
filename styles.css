@@ -1372,6 +1372,10 @@ body {
         gap: 1rem;
     }
 
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
     .timeline::before {
         left: 6px;
     }
