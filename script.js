@@ -1,236 +1,236 @@
-// ================================
-// Navigation Functionality
-// ================================
-const navbar = document.getElementById('navbar');
-const navToggle = document.getElementById('nav-toggle');
-const navMenu = document.getElementById('nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
+/* ================================
+   Majd-Inspired Portfolio — JavaScript
+   Scroll reveals, nav toggle, interactions
+================================ */
 
-// Toggle mobile menu
-navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+document.addEventListener('DOMContentLoaded', () => {
+    // ─── Element References ───
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navClose = document.getElementById('nav-close');
+    const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
 
-// Close mobile menu when clicking a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Navbar scroll effect
-let lastScroll = 0;
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-
-    lastScroll = currentScroll;
-});
-
-// ================================
-// Smooth Scrolling
-// ================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// ================================
-// Active Navigation Link
-// ================================
-const sections = document.querySelectorAll('section[id]');
-
-function setActiveNav() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-
-        if (navLink) {
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                navLink.classList.add('active');
-            } else {
-                navLink.classList.remove('active');
-            }
-        }
-    });
-}
-
-window.addEventListener('scroll', setActiveNav);
-
-// ================================
-// Scroll Reveal Animation
-// ================================
-function reveal() {
-    const reveals = document.querySelectorAll('.skill-category, .project-card, .cert-card');
-
-    reveals.forEach(element => {
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-
-        if (elementTop < windowHeight - elementVisible) {
-            element.classList.add('reveal', 'active');
-            element.style.transitionDelay = '0ms';
-        }
-    });
-}
-
-window.addEventListener('scroll', reveal);
-reveal(); // Initial check
-
-// ================================
-// Staggered Reveal & Scroll Progress
-// ================================
-// Apply incremental delay so cards animate in sequence
-const revealGroups = document.querySelectorAll('.projects-grid, .skills-grid, .cert-grid, .timeline');
-revealGroups.forEach(group => {
-    const items = group.querySelectorAll('.project-card, .skill-category, .cert-card, .timeline-item');
-    items.forEach((item, i) => {
-        item.style.transitionDelay = `${Math.min(i * 80, 400)}ms`;
-    });
-});
-
-// Scroll progress bar
-const progressBar = document.createElement('div');
-progressBar.style.cssText = 'position:fixed;top:0;left:0;height:3px;width:0;z-index:2000;background:linear-gradient(90deg,#7C3AED,#0891B2);box-shadow:0 0 12px rgba(124,58,237,0.6);transition:width 0.1s ease;';
-document.body.appendChild(progressBar);
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    progressBar.style.width = pct + '%';
-});
-
-// ================================
-// Contact — handled inline via mailto links (no form)
-// ================================
-
-// ================================
-// Typing Effect for Hero Title
-// ================================
-const heroTitle = document.getElementById('hero-title') || document.querySelector('.hero-title');
-const titles = (heroTitle && heroTitle.dataset.rotate)
-    ? heroTitle.dataset.rotate.split('|')
-    : ['Software Engineer', 'Backend Developer', 'Full-Stack Developer', 'AI/ML Enthusiast'];
-let titleIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeTitle() {
-    const currentTitleText = titles[titleIndex];
-
-    if (!isDeleting) {
-        charIndex++;
-        heroTitle.innerHTML = currentTitleText.substring(0, charIndex) + '<span class="type-cursor">|</span>';
-
-        if (charIndex > currentTitleText.length) {
-            isDeleting = true;
-            setTimeout(typeTitle, 2200);
-            return;
-        }
-    } else {
-        charIndex--;
-        heroTitle.innerHTML = currentTitleText.substring(0, charIndex) + '<span class="type-cursor">|</span>';
-
-        if (charIndex === 0) {
-            isDeleting = false;
-            titleIndex = (titleIndex + 1) % titles.length;
-        }
-    }
-
-    const speed = isDeleting ? 40 : 80;
-    setTimeout(typeTitle, speed);
-}
-
-// Start typing effect after a delay
-if (heroTitle) {
-    setTimeout(() => {
-        heroTitle.innerHTML = '<span class="type-cursor">|</span>';
-        typeTitle();
-    }, 1000);
-}
-
-// ================================
-// Back to Top Button (optional)
-// ================================
-function createBackToTop() {
-    const backToTop = document.createElement('button');
-    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTop.className = 'back-to-top';
-    backToTop.setAttribute('aria-label', 'Back to top');
-    document.body.appendChild(backToTop);
-
-    // Style the button
-    backToTop.style.cssText = `
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--primary);
-        color: white;
-        border: none;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
-        box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
-        transition: all 0.3s ease;
-        z-index: 999;
-    `;
-
+    // ─── Scroll-Based Navbar ───
+    let lastScrollY = 0;
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 500) {
-            backToTop.style.display = 'flex';
-        } else {
-            backToTop.style.display = 'none';
+        const scrollY = window.scrollY;
+        if (navbar) {
+            navbar.classList.toggle('scrolled', scrollY > 60);
         }
-    });
+        lastScrollY = scrollY;
+    }, { passive: true });
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    // ─── Mobile Nav Toggle ───
+    function openMenu() {
+        if (navMenu) {
+            navMenu.classList.add('active');
+            navClose.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeMenu() {
+        if (navMenu) {
+            navMenu.classList.remove('active');
+            navClose.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (navToggle) {
+        navToggle.addEventListener('click', openMenu);
+    }
+
+    if (navClose) {
+        navClose.addEventListener('click', closeMenu);
+    }
+
+    // Close menu on link click
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
         });
     });
 
-    backToTop.addEventListener('mouseenter', () => {
-        backToTop.style.transform = 'translateY(-3px)';
-        backToTop.style.boxShadow = '0 6px 20px rgba(99, 102, 241, 0.5)';
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
     });
 
-    backToTop.addEventListener('mouseleave', () => {
-        backToTop.style.transform = 'translateY(0)';
-        backToTop.style.boxShadow = '0 4px 14px rgba(99, 102, 241, 0.4)';
+    // ─── Hero Dynamic Title Rotator ───
+    const heroRotator = document.getElementById('hero-rotator');
+    if (heroRotator) {
+        const titles = [
+            '<span class="line">SOFTWARE</span><span class="line">ENGINEER</span>',
+            '<span class="line">BACKEND</span><span class="line">DEVELOPER</span>',
+            '<span class="line">AI & ML</span><span class="line">ENGINEER</span>',
+            '<span class="line">FULL-STACK</span><span class="line">DEVELOPER</span>'
+        ];
+        let currentIndex = 0;
+
+        setInterval(() => {
+            heroRotator.classList.add('changing-out');
+
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % titles.length;
+                heroRotator.innerHTML = titles[currentIndex];
+                heroRotator.classList.remove('changing-out');
+                heroRotator.classList.add('changing-in');
+
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        heroRotator.classList.remove('changing-in');
+                    });
+                });
+            }, 500);
+        }, 3200);
+    }
+
+    // ─── Scroll Reveal Animation ───
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Don't unobserve — we want one-time reveal
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
     });
-}
 
-createBackToTop();
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
 
-// ================================
-// Console Easter Egg
-// ================================
-console.log('%c Welcome to Mazen Wael\'s Portfolio! 👋', 'color: #6366f1; font-size: 20px; font-weight: bold;');
-console.log('%c Feel free to explore the code!', 'color: #94a3b8; font-size: 14px;');
+    // ─── Process Text Word-by-Word Reveal ───
+    const processText = document.querySelector('.process-text');
+    if (processText) {
+        const processObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    processObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        processObserver.observe(processText);
+    }
+
+    // ─── Smooth Anchor Scrolling ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
+                e.preventDefault();
+                targetEl.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // ─── Project Card Tilt Effect (Subtle) ───
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / centerY * -3;
+            const rotateY = (x - centerX) / centerX * 3;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // ─── Service Row Hover Effect ───
+    const serviceRows = document.querySelectorAll('.service-row');
+    serviceRows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+            serviceRows.forEach(r => {
+                if (r !== row) {
+                    r.style.opacity = '0.4';
+                }
+            });
+        });
+
+        row.addEventListener('mouseleave', () => {
+            serviceRows.forEach(r => {
+                r.style.opacity = '';
+            });
+        });
+    });
+
+    // ─── Hero Parallax (Subtle) ───
+    const heroPhoto = document.querySelector('.hero-photo');
+    const heroTitle = document.querySelector('.hero-title');
+
+    if (heroPhoto && heroTitle) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const heroHeight = window.innerHeight;
+
+            if (scrollY < heroHeight) {
+                const progress = scrollY / heroHeight;
+                heroPhoto.style.transform = `translateX(-50%) translateY(${progress * -30}px)`;
+                heroTitle.style.transform = `translateY(${progress * 20}px)`;
+                heroTitle.style.opacity = 1 - progress * 0.6;
+            }
+        }, { passive: true });
+    }
+
+    // ─── Footer Watermark Parallax ───
+    const watermark = document.querySelector('.footer-watermark');
+    if (watermark) {
+        window.addEventListener('scroll', () => {
+            const rect = watermark.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                watermark.style.transform = `translateX(${(progress - 0.5) * -60}px)`;
+            }
+        }, { passive: true });
+    }
+
+    // ─── Contact Form Enhancement ───
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const project = document.getElementById('project').value;
+            
+            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Details:\n${project}`);
+            
+            window.location.href = `mailto:mazenwael575@gmail.com?subject=${subject}&body=${body}`;
+        });
+    }
+
+    // ─── Decorative Stars Animation (Random Float) ───
+    const stars = document.querySelectorAll('.hero-star');
+    stars.forEach((star, index) => {
+        const duration = 5 + Math.random() * 3;
+        const delay = index * -2;
+        star.style.animationDuration = `${duration}s`;
+        star.style.animationDelay = `${delay}s`;
+    });
+});

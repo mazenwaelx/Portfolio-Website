@@ -6,8 +6,8 @@
     <title>Mazen Wael | Software Engineer — Backend, Full-Stack & AI/ML</title>
     <meta name="description" content="Mazen Wael — Software Engineering student at Cairo University. Backend & full-stack developer specializing in production APIs (Flask, .NET, Docker, CI/CD) and AI/ML (RAG, LangChain, Gemini). Open to new graduate and AI engineering roles.">
     <meta name="author" content="Mazen Wael">
-    <meta name="theme-color" content="#070912">
-    <meta name="color-scheme" content="dark light">
+    <meta name="theme-color" content="#f0ece6">
+    <meta name="color-scheme" content="light">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph / Social Sharing -->
@@ -20,499 +20,452 @@
     <meta name="twitter:title" content="Mazen Wael | Software Engineer">
     <meta name="twitter:description" content="Backend & full-stack developer with production API and RAG/LLM experience.">
 
-    <!-- Favicon (inline SVG monogram — no external file needed) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%237C3AED'/><text x='32' y='33' dy='.35em' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='white'>MW</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23111111'/><text x='32' y='33' dy='.35em' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='%23f0ece6'>MW</text></svg>">
 
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+
+    <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo">MW</a>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <a href="#home" class="nav-brand">Mazen</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span class="nav-dots">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="MazenWael_CV.pdf" download class="nav-link nav-cv">CV <i class="fas fa-download"></i></a></li>
-            </ul>
-        </div>
+            </span>
+        </button>
     </nav>
 
-    <!-- Gradient Orbs (Background Decor) -->
-    <div class="gradient-orbs" aria-hidden="true"></div>
+    <!-- Full-screen Nav Menu -->
+    <div class="nav-menu" id="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="MazenWael_CV.pdf" download class="nav-cv-btn">
+            <i class="fas fa-download"></i> Download CV
+        </a>
+    </div>
+    <button class="nav-close" id="nav-close" aria-label="Close navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
 
-    <!-- Hero Section -->
+    <!-- ========== HERO SECTION ========== -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-avatar" aria-hidden="true">
-                <span>MW</span>
-            </div>
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-name">Mazen Wael</h1>
-            <p class="hero-title" id="hero-title" data-rotate="Software Engineer|Backend &amp; Full-Stack Dev|AI &amp; RAG Engineer|Problem Solver">Software Engineer</p>
-            <p class="hero-description">
-                Building scalable web applications and intelligent systems with clean code and modern architectures.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <span>View My Work</span>
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="MazenWael_CV.pdf" download class="btn btn-secondary">
-                    <i class="fas fa-download"></i> Download CV
-                </a>
-            </div>
-            <div class="hero-social">
-                <a href="https://www.linkedin.com/in/mazen-wael-58b181278/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/mazenwaelx" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="mailto:mazenwael575@gmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
+        <!-- Decorative Stars -->
+        <div class="hero-star hero-star--left">
+            <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30 0C30 16.5685 16.5685 30 0 30C16.5685 30 30 43.4315 30 60C30 43.4315 43.4315 30 60 30C43.4315 30 30 16.5685 30 0Z" fill="#111111"/>
+            </svg>
         </div>
-        <div class="hero-scroll">
-            <a href="#about" aria-label="Scroll to about section">
-                <i class="fas fa-chevron-down"></i>
-            </a>
+        <div class="hero-star hero-star--right">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 0L28.9 16.2L48 16.2L32.5 26.2L37.5 42L24 32L10.5 42L15.5 26.2L0 16.2L19.1 16.2L24 0Z" fill="#111111"/>
+            </svg>
+        </div>
+
+        <div class="hero-text">
+            <h1 class="hero-title reveal">
+                <span class="hero-rotator" id="hero-rotator">
+                    <span class="line">SOFTWARE</span>
+                    <span class="line">ENGINEER</span>
+                </span>
+            </h1>
+        </div>
+
+
+        <!-- Bottom Bar -->
+        <div class="hero-bottom">
+            <div class="hero-copyright reveal reveal-delay-3">©2026</div>
+            <div class="hero-since reveal reveal-delay-3">/CREATING SINCE 2022</div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ========== ABOUT / BIO SECTION ========== -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="about-profile">
-                        <div class="about-avatar" aria-hidden="true">MW</div>
-                        <div class="about-profile-meta">
-                            <h3>Mazen Wael</h3>
-                            <p>Software Engineer · Backend &amp; Full-Stack · AI/ML</p>
-                            <span class="about-status"><i class="fas fa-circle"></i> Open to Opportunities</span>
-                        </div>
-                    </div>
-                    <p>
-                        Backend and Full-Stack Engineer with a B.Sc. in Software Engineering from Cairo University. I build scalable applications and production-ready APIs, with experience ranging from full-stack marketplace architectures to AI-powered systems. I specialize in the intersection of traditional web development and machine learning, focusing on delivering high-quality, data-driven solutions.
-                    </p>
-                    <p>
-                        My experience spans from architecting production-grade marketplace platforms to developing machine learning models for predictive analytics. I thrive on solving complex problems and delivering high-quality solutions.
-                    </p>
-                    <p>
-                        I'm particularly interested in backend systems, API design, and the intersection of web development with AI/ML technologies.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Cairo, Egypt</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Cairo University</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-briefcase"></i>
-                            <span>Open to Opportunities</span>
-                        </div>
-                    </div>
+            <div class="about-grid">
+                <div class="about-intro reveal">
+                    <h2>Hey!</h2>
+                    <p>I'm Mazen, a software engineer based in Cairo, Egypt. Currently a B.Sc. graduate from Cairo University's Software Engineering program.</p>
+                </div>
+
+                <div class="about-photo reveal reveal-delay-1">
+                    <img src="assets/mazen-photo.jpg" alt="Mazen Wael portrait">
+                </div>
+
+                <div class="about-description reveal reveal-delay-2">
+                    <p>I'm a software engineer with a strong focus on building modern, scalable, and production-ready backend systems and AI-powered applications.</p>
+                    <p>Over the years, I've built production-grade APIs, marketplace platforms, and RAG-powered legal assistants — shipping real products that solve real problems.</p>
+                    <a href="#contact" class="about-cta">
+                        Get Started
+                        <span class="arrow">
+                            <i class="fas fa-arrow-up-right-from-square" style="font-size: 12px;"></i>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <!-- ========== PROCESS / MANIFESTO ========== -->
+    <section class="process">
         <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
+            <p class="process-text reveal">
+                <span class="bold">From</span>
+                <span class="muted">idea to launch. Clean, scalable digital products built to move fast, stay simple, and perform in real-world use, driven by clarity, structured systems, and intentional design.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS / SERVICES ========== -->
+    <section id="skills" class="services">
+        <div class="container">
+            <h2 class="section-label reveal">Skills</h2>
+
+            <div class="service-row reveal">
+                <span class="service-name">Backend Development</span>
+                <div class="service-tags">
+                    <span>Flask</span>
+                    <span class="dot"></span>
+                    <span>ASP.NET Core</span>
+                    <span class="dot"></span>
+                    <span>REST APIs</span>
+                    <span class="dot"></span>
+                    <span>Docker</span>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Web & Frameworks</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">ASP.NET Core</span>
-                        <span class="tag">.NET</span>
-                        <span class="tag">React</span>
-                        <span class="tag">REST API</span>
-                        <span class="tag">WebSockets</span>
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                    </div>
+            </div>
+
+            <div class="service-row reveal">
+                <span class="service-name">AI & Machine Learning</span>
+                <div class="service-tags">
+                    <span>RAG</span>
+                    <span class="dot"></span>
+                    <span>LangChain</span>
+                    <span class="dot"></span>
+                    <span>TensorFlow</span>
+                    <span class="dot"></span>
+                    <span>scikit-learn</span>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="tag">MySQL</span>
-                        <span class="tag">SQL Server</span>
-                        <span class="tag">FAISS</span>
-                        <span class="tag">Query Optimization</span>
-                        <span class="tag">Schema Design</span>
-                        <span class="tag">EF Core</span>
-                    </div>
+            </div>
+
+            <div class="service-row reveal">
+                <span class="service-name">Full-Stack Development</span>
+                <div class="service-tags">
+                    <span>React</span>
+                    <span class="dot"></span>
+                    <span>JavaScript</span>
+                    <span class="dot"></span>
+                    <span>HTML/CSS</span>
+                    <span class="dot"></span>
+                    <span>WebSockets</span>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>DevOps & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
-                        <span class="tag">Docker</span>
-                        <span class="tag">Nginx</span>
-                        <span class="tag">GitHub Actions</span>
-                        <span class="tag">Linux</span>
-                        <span class="tag">Shell Scripting</span>
-                        <span class="tag">CI/CD</span>
-                    </div>
+            </div>
+
+            <div class="service-row reveal">
+                <span class="service-name">DevOps & Infrastructure</span>
+                <div class="service-tags">
+                    <span>Docker</span>
+                    <span class="dot"></span>
+                    <span>CI/CD</span>
+                    <span class="dot"></span>
+                    <span>Nginx</span>
+                    <span class="dot"></span>
+                    <span>Linux</span>
                 </div>
-                <div class="skill-category">
-                    <div class="skill-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>ML & AI</h3>
-                    <div class="skill-tags">
-                        <span class="tag">RAG</span>
-                        <span class="tag">LangChain</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">scikit-learn</span>
-                        <span class="tag">Vector Embeddings</span>
-                        <span class="tag">Pandas</span>
-                    </div>
+            </div>
+
+            <div class="service-row reveal">
+                <span class="service-name">Databases</span>
+                <div class="service-tags">
+                    <span>MySQL</span>
+                    <span class="dot"></span>
+                    <span>SQL Server</span>
+                    <span class="dot"></span>
+                    <span>FAISS</span>
+                    <span class="dot"></span>
+                    <span>EF Core</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- ========== EXPERIENCE ========== -->
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Engineering Intern</h3>
-                            <span class="company">ALX Africa</span>
-                            <span class="duration">Sep 2023 - Nov 2024</span>
-                        </div>
-                        <ul class="timeline-details">
-                            <li>
-                                <strong>Team Collaboration:</strong> Collaborated within a 3-engineer Agile team to architect and deploy a capstone full-stack marketplace platform (Market Mate).
-                            </li>
-                            <li>
-                                <strong>Performance Optimization:</strong> Developed backend RESTful APIs utilizing Flask and MySQL, applying systematic query indexing and N+1 query elimination to optimize response times.
-                            </li>
-                            <li>
-                                <strong>CI/CD Automation:</strong> Automated the full build-and-deploy pipeline using GitHub Actions, cutting manual deployment steps from 12 to 3 and decreasing total deployment time by over 60%.
-                            </li>
-                            <li>
-                                <strong>Production Deployment:</strong> Deployed Flask applications to production Linux servers using Nginx as a reverse proxy with Docker containerization, ensuring zero-downtime releases.
-                            </li>
-                            <li>
-                                <strong>Database Architecture:</strong> Architected normalised MySQL database schemas for a product catalog supporting 50+ SKUs, implementing indexing strategies that sustained sub-100ms query performance.
-                            </li>
-                        </ul>
-                    </div>
+            <h2 class="reveal">Experience</h2>
+
+            <div class="exp-card reveal">
+                <div class="exp-meta">
+                    <h3>Software Engineering Intern</h3>
+                    <p class="company">ALX Africa</p>
+                    <span class="duration">Sep 2023 – Nov 2024</span>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content education">
-                        <div class="timeline-header">
-                            <h3>B.Sc. Software Engineering — Computer Science</h3>
-                            <span class="company">Cairo University, Cairo, Egypt</span>
-                            <span class="duration">2022 – Jun 2026</span>
-                        </div>
-                        <p class="degree-info">Grade: Very Good</p>
-                    </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Collaborated within a 3-engineer Agile team to architect and deploy a capstone full-stack marketplace platform (Market Mate).</li>
+                        <li>Developed backend RESTful APIs utilizing Flask and MySQL, applying systematic query indexing and N+1 query elimination to optimize response times.</li>
+                        <li>Automated the full build-and-deploy pipeline using GitHub Actions, cutting manual deployment steps from 12 to 3 and decreasing total deployment time by over 60%.</li>
+                        <li>Deployed Flask applications to production Linux servers using Nginx as a reverse proxy with Docker containerization, ensuring zero-downtime releases.</li>
+                        <li>Architected normalised MySQL database schemas for a product catalog supporting 50+ SKUs, implementing indexing strategies that sustained sub-100ms query performance.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp-card reveal">
+                <div class="exp-meta">
+                    <h3>B.Sc. Software Engineering</h3>
+                    <p class="company">Cairo University, Cairo, Egypt</p>
+                    <span class="duration">2022 – Jun 2026</span>
+                </div>
+                <div class="exp-details">
+                    <p class="exp-degree">Grade: Very Good</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- ========== FEATURED PROJECTS ========== -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-header reveal">
+                <h2>Featured<br>Projects</h2>
+                <a href="https://github.com/mazenwaelx" target="_blank" rel="noopener noreferrer" class="view-all">
+                    View All Work
+                    <span class="arrow"><i class="fas fa-arrow-up" style="font-size: 12px; transform: rotate(45deg);"></i></span>
+                </a>
+            </div>
+
             <div class="projects-grid">
-                <article class="project-card featured-project">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
+                <!-- Project 1: Egyptian Legal AI -->
+                <div class="project-card reveal">
+                    <img src="assets/project-legal-ai.png" alt="Egyptian Legal AI" loading="lazy">
+                    <div class="project-overlay">
                         <h3>Egyptian Legal AI</h3>
-                        <p class="project-subtitle">RAG-based Legal Assistant (Graduation Project)</p>
-                    </div>
-                    <div class="project-body">
-                        <p>A Retrieval-Augmented Generation system for Egyptian Labor Law, delivering accurate Arabic legal responses with cited article references using FAISS vector search, LangChain, and Gemini.</p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check"></i> 100% pass rate across 75 test cases</span>
-                            <span><i class="fas fa-check"></i> Sub-5s response latency</span>
-                        </div>
-                        <div class="project-tech">
+                        <p>RAG-based Legal Assistant — 100% pass rate across 75 test cases</p>
+                        <div class="project-tags">
                             <span>Python</span>
-                            <span>FastAPI</span>
                             <span>LangChain</span>
                             <span>Gemini</span>
                             <span>React</span>
                         </div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/mazenwaelx/Grad-2.0v2" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/mazenwaelx/Grad-2.0v2" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
+                <!-- Project 2: MarketMate -->
+                <div class="project-card reveal reveal-delay-1">
+                    <img src="assets/project-marketmate.jpg" alt="MarketMate" loading="lazy">
+                    <div class="project-overlay">
                         <h3>MarketMate</h3>
-                        <p class="project-subtitle">Full-Stack Marketplace Platform</p>
-                    </div>
-                    <div class="project-body">
-                        <p>A production-grade marketplace with JWT authentication, product catalog serving 50+ SKUs, and real-time buyer/seller notifications via WebSockets.</p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check"></i> 30% API latency reduction</span>
-                            <span><i class="fas fa-check"></i> 60% deployment overhead cut</span>
-                        </div>
-                        <div class="project-tech">
+                        <p>Full-Stack Marketplace — 30% API latency reduction</p>
+                        <div class="project-tags">
                             <span>Flask</span>
                             <span>MySQL</span>
-                            <span>WebSockets</span>
                             <span>Docker</span>
                             <span>Nginx</span>
                         </div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/mazenwaelx/MarketMate" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/mazenwaelx/MarketMate" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
+                <!-- Project 3: Airbnb Clone -->
+                <div class="project-card reveal">
+                    <img src="assets/project-airbnb.png" alt="Airbnb Clone" loading="lazy">
+                    <div class="project-overlay">
                         <h3>Airbnb Clone</h3>
-                        <p class="project-subtitle">Distributed Booking API</p>
-                    </div>
-                    <div class="project-body">
-                        <p>A RESTful API in Flask handling booking and listing workflows across 5 normalised resource models with full CRUD operations and responsive frontend.</p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check"></i> 5 resource models</span>
-                            <span><i class="fas fa-check"></i> SQL schema enforcement</span>
-                        </div>
-                        <div class="project-tech">
+                        <p>Distributed Booking API with 5 resource models</p>
+                        <div class="project-tags">
                             <span>Flask</span>
                             <span>MySQL</span>
                             <span>REST API</span>
-                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/mazenwaelx/Airbnb" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/mazenwaelx/Airbnb" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
+                <!-- Project 4: Heart Disease Prediction -->
+                <div class="project-card reveal reveal-delay-1">
+                    <img src="assets/project-heart-disease.png" alt="Heart Disease Prediction" loading="lazy">
+                    <div class="project-overlay">
                         <h3>Heart Disease Prediction</h3>
-                        <p class="project-subtitle">ML Classification Model</p>
-                    </div>
-                    <div class="project-body">
-                        <p>Trained Logistic Regression and Random Forest classifiers on the 303-record UCI Heart Disease dataset with hyperparameter tuning.</p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check"></i> 87% classification accuracy</span>
-                            <span><i class="fas fa-check"></i> 8 diagnostic visualizations</span>
-                        </div>
-                        <div class="project-tech">
+                        <p>ML Classification — 87% accuracy with 8 visualizations</p>
+                        <div class="project-tags">
                             <span>Python</span>
                             <span>scikit-learn</span>
                             <span>Pandas</span>
-                            <span>Matplotlib</span>
+                        </div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/mazenwaelx/Heart_Disease_Project" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/mazenwaelx/Heart_Disease_Project" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </article>
+                </div>
 
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
+                <!-- Project 5: Habit Tracker (Full Width) -->
+                <div class="project-card full-width reveal">
+                    <img src="assets/project-habit-tracker.png" alt="Habit Tracker App" loading="lazy">
+                    <div class="project-overlay">
                         <h3>Habit Tracker App</h3>
-                        <p class="project-subtitle">ASP.NET Core CRUD Application</p>
-                    </div>
-                    <div class="project-body">
-                        <p>A personal productivity tool with EF Core database models, full CRUD controllers, and Razor views with persistent SQL Server storage.</p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check"></i> MVC architecture</span>
-                            <span><i class="fas fa-check"></i> Persistent storage</span>
-                        </div>
-                        <div class="project-tech">
+                        <p>ASP.NET Core CRUD Application with MVC architecture</p>
+                        <div class="project-tags">
                             <span>ASP.NET Core</span>
                             <span>EF Core</span>
                             <span>SQL Server</span>
                             <span>Razor</span>
                         </div>
+                        <div class="project-links-row">
+                            <a href="https://github.com/mazenwaelx/Habit_Tracker" target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/mazenwaelx/Habit_Tracker" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </article>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
+    <!-- ========== CERTIFICATIONS ========== -->
     <section id="certifications" class="certifications">
         <div class="container">
-            <h2 class="section-title">Certifications</h2>
+            <h2 class="reveal">Certifications</h2>
+
             <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-certificate"></i>
+                <div class="cert-card reveal">
+                    <div>
+                        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+                        <h3>Full Stack Software Engineering</h3>
                     </div>
-                    <h3>Full Stack Software Engineering</h3>
-                    <p class="cert-issuer">ALX Africa</p>
-                    <p class="cert-date">Sep 2023 - Nov 2024</p>
+                    <div class="cert-meta">
+                        <p class="cert-issuer">ALX Africa</p>
+                        <p class="cert-date">Sep 2023 – Nov 2024</p>
+                    </div>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-brain"></i>
+
+                <div class="cert-card reveal reveal-delay-1">
+                    <div>
+                        <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Deep Learning Specialization</h3>
                     </div>
-                    <h3>Deep Learning Specialization</h3>
-                    <p class="cert-issuer">DeepLearning.AI (Coursera)</p>
-                    <p class="cert-date">Jun 2025 - Oct 2025</p>
+                    <div class="cert-meta">
+                        <p class="cert-issuer">DeepLearning.AI (Coursera)</p>
+                        <p class="cert-date">Jun 2025 – Oct 2025</p>
+                    </div>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-microsoft"></i>
+
+                <div class="cert-card reveal reveal-delay-2">
+                    <div>
+                        <div class="cert-icon"><i class="fab fa-microsoft"></i></div>
+                        <h3>AI & Machine Learning Program</h3>
                     </div>
-                    <h3>AI & Machine Learning Program</h3>
-                    <p class="cert-issuer">Microsoft / Sprints</p>
-                    <p class="cert-date">Jun 2025 - Nov 2025</p>
+                    <div class="cert-meta">
+                        <p class="cert-issuer">Microsoft / Sprints</p>
+                        <p class="cert-date">Jun 2025 – Nov 2025</p>
+                    </div>
                 </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-language"></i>
+
+                <div class="cert-card reveal reveal-delay-3">
+                    <div>
+                        <div class="cert-icon"><i class="fas fa-language"></i></div>
+                        <h3>EF SET English Certificate</h3>
                     </div>
-                    <h3>EF SET English Certificate</h3>
-                    <p class="cert-issuer">C2 Proficient (71/100)</p>
-                    <p class="cert-date">Mar 2025</p>
+                    <div class="cert-meta">
+                        <p class="cert-issuer">C2 Proficient (71/100)</p>
+                        <p class="cert-date">Mar 2025</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ========== CONTACT ========== -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <p class="contact-intro">
-                I'm currently open to new opportunities and would love to hear from you. Whether you have a project in mind or just want to say hi, feel free to reach out!
-            </p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
+            <div class="contact-wrapper reveal">
+                <h2>Let's talk.</h2>
+                <p>Feel free to reach out for project inquiries, collaborations, or just to say hi.</p>
+                <div class="contact-details">
+                    <a href="mailto:mazenwael575@gmail.com" class="contact-detail-item">
                         <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:mazenwael575@gmail.com">mazenwael575@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <a href="tel:+201286080266">+20 128 608 0266</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <span>Cairo, Egypt</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Mazen Wael</h3>
-                    <p>Software Engineer | Backend & Full-Stack | AI/ML</p>
-                    <a href="MazenWael_CV.pdf" download class="footer-cv"><i class="fas fa-download"></i> Download CV</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/mazen-wael-58b181278/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
+                        <span>mazenwael575@gmail.com</span>
                     </a>
+                    <a href="tel:+201286080266" class="contact-detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+20 128 608 0266</span>
+                    </a>
+                    <div class="contact-detail-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Cairo, Egypt</span>
+                    </div>
+                </div>
+                <div class="contact-social">
                     <a href="https://github.com/mazenwaelx" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mazen-wael-58b181278/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:mazenwael575@gmail.com" aria-label="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-tagline reveal">
+                    <h3>Building Scalable Systems for Growth.</h3>
+                </div>
+
+                <div class="footer-links reveal reveal-delay-1">
+                    <h4>/Quick links</h4>
+                    <div class="footer-links-grid">
+                        <a href="#home">Home</a>
+                        <a href="#about">About Me</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+
+                <div class="footer-contact reveal reveal-delay-2">
+                    <h4>/Contact</h4>
+                    <a href="mailto:mazenwael575@gmail.com">mazenwael575@gmail.com</a>
+                    <a href="tel:+201286080266">+20 128 608 0266</a>
+                    <p>Cairo, Egypt</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-watermark" aria-hidden="true">MAZEN</div>
+
+        <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2026 Mazen Wael. All rights reserved.</p>
             </div>
