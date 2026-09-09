@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroRotator) {
         const titles = [
             '<span class="line">SOFTWARE</span><span class="line">ENGINEER</span>',
-            '<span class="line">BACKEND</span><span class="line">DEVELOPER</span>',
-            '<span class="line">AI & ML</span><span class="line">ENGINEER</span>',
-            '<span class="line">FULL-STACK</span><span class="line">DEVELOPER</span>'
+            '<span class="line">BACKEND &</span><span class="line">FULL-STACK</span>',
+            '<span class="line">AI / ML &</span><span class="line">VISION</span>',
+            '<span class="line">PRODUCTION</span><span class="line">SYSTEMS</span>'
         ];
         let currentIndex = 0;
 

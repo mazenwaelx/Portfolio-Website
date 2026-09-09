@@ -191,6 +191,10 @@ img {
     transform: translateY(20px);
 }
 
+.nav-menu a:not(.nav-cv-btn):hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .nav-menu.active a {
     opacity: 1;
     transform: translateY(0);
@@ -203,10 +207,6 @@ img {
 .nav-menu.active a:nth-child(5) { transition-delay: 0.25s; }
 .nav-menu.active a:nth-child(6) { transition-delay: 0.3s; }
 .nav-menu.active a:nth-child(7) { transition-delay: 0.35s; }
-
-.nav-menu a:hover {
-    background: rgba(255, 255, 255, 0.08);
-}
 
 .nav-close {
     position: fixed;
@@ -810,11 +810,61 @@ img {
     justify-content: space-between;
     min-height: 220px;
     transition: var(--transition);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cert-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: var(--text-light);
+}
+
+.cert-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.cert-card .cert-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 0;
+    transition: var(--transition-fast);
+}
+
+.cert-card:hover .cert-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.cert-external-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: rgba(240, 236, 230, 0.6);
+    transition: var(--transition-fast);
+}
+
+.cert-card:hover .cert-external-icon {
+    background: var(--text-light);
+    color: var(--dark);
+    transform: translate(2px, -2px);
 }
 
 .cert-card h3 {
@@ -823,6 +873,7 @@ img {
     letter-spacing: -0.02em;
     line-height: 1.3;
     margin-bottom: 16px;
+    color: var(--text-light);
 }
 
 .cert-card .cert-meta {
@@ -831,25 +882,13 @@ img {
 
 .cert-card .cert-issuer {
     font-size: 14px;
-    color: rgba(240, 236, 230, 0.6);
+    color: rgba(240, 236, 230, 0.7);
     margin-bottom: 4px;
 }
 
 .cert-card .cert-date {
     font-size: 13px;
-    color: rgba(240, 236, 230, 0.4);
-}
-
-.cert-card .cert-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    font-size: 18px;
+    color: rgba(240, 236, 230, 0.45);
 }
 
 /* ================================
@@ -1227,7 +1266,7 @@ img {
         font-size: 16px;
     }
 
-    .nav-menu a {
+    .nav-menu a:not(.nav-cv-btn) {
         font-size: 32px;
     }
 
@@ -1307,23 +1346,43 @@ body > *:not(script) {
 }
 
 /* Nav CV download button */
+.nav-menu a.nav-cv-btn,
 .nav-cv-btn {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--bg);
-    color: var(--text);
-    border-radius: var(--radius-full);
-    font-size: 15px;
-    font-weight: 600;
-    margin-top: 16px;
-    transition: var(--transition-fast);
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px !important;
+    background: var(--bg) !important;
+    color: var(--dark) !important;
+    border-radius: var(--radius-full) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    margin-top: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 
+.nav-menu a.nav-cv-btn:hover,
 .nav-cv-btn:hover {
-    background: white;
-    transform: scale(1.05);
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: translateY(-2px) scale(1.04) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.nav-menu a.nav-cv-btn i,
+.nav-cv-btn i {
+    font-size: 14px;
+    color: var(--dark) !important;
+    transition: transform 0.2s ease;
+}
+
+.nav-menu a.nav-cv-btn:hover i,
+.nav-cv-btn:hover i {
+    transform: translateY(1px);
+    color: #000000 !important;
 }
 
 /* Smooth scroll offset for anchors */
