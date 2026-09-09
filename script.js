@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navClose = document.getElementById('nav-close');
     const navLinks = navMenu ? navMenu.querySelectorAll('a') : [];
 
-    // ─── Scroll-Based Navbar ───
+    // ─── Scroll-Based Navbar 
     let lastScrollY = 0;
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
