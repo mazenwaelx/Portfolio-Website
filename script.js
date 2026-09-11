@@ -233,4 +233,415 @@ document.addEventListener('DOMContentLoaded', () => {
         star.style.animationDuration = `${duration}s`;
         star.style.animationDelay = `${delay}s`;
     });
+
+    // ================================================================
+    // ─── PROJECT GALLERY LIGHTBOX SYSTEM ───
+    // ================================================================
+    const PROJECT_GALLERIES = {
+        'netpoint': {
+            title: 'Arabic Hotel Reviews Sentiment Classification',
+            badge: 'NetPoint Competition · 95.06% Accuracy',
+            github: 'https://github.com/mazenwaelx',
+            items: [
+                {
+                    src: 'assets/projects/netpoint/overview_top_1789163903606.png',
+                    thumb: 'assets/projects/netpoint/overview_top_1789163903606.png',
+                    title: 'Executive Dashboard & Competition Leaderboard',
+                    desc: 'Top competition ranking with 95.06% test accuracy across 105,000+ Arabic reviews.'
+                },
+                {
+                    src: 'assets/projects/netpoint/ensemble_arch_1789163986845.png',
+                    thumb: 'assets/projects/netpoint/ensemble_arch_1789163986845.png',
+                    title: '4-Way Deep Learning Ensemble Architecture',
+                    desc: 'BiGRU, BiLSTM, Multi-Head Self-Attention, and Transformer models fused via soft voting.'
+                },
+                {
+                    src: 'assets/projects/netpoint/live_inference_1789163962934.png',
+                    thumb: 'assets/projects/netpoint/live_inference_1789163962934.png',
+                    title: 'Real-Time Dialectal Arabic Live Inference',
+                    desc: 'Interactive prediction engine with probability distributions and sentiment confidence breakdown.'
+                },
+                {
+                    src: 'assets/projects/netpoint/overview_curves_matrix_1789163916722.png',
+                    thumb: 'assets/projects/netpoint/overview_curves_matrix_1789163916722.png',
+                    title: 'Loss / Accuracy Curves & Confusion Matrix',
+                    desc: 'Training convergence curves and detailed multiclass confusion matrix across 105K hotel reviews.'
+                },
+                {
+                    src: 'assets/projects/netpoint/ensemble_table_1789164010527.png',
+                    thumb: 'assets/projects/netpoint/ensemble_table_1789164010527.png',
+                    title: 'Model Benchmarking & Ensemble Weight Distribution',
+                    desc: 'Comparison across baseline models, individual architectures, and the weighted ensemble.'
+                },
+                {
+                    src: 'assets/projects/netpoint/training_metrics_1789164048933.png',
+                    thumb: 'assets/projects/netpoint/training_metrics_1789164048933.png',
+                    title: 'Training Progression & Epoch Metrics',
+                    desc: 'Loss reduction, learning rate scheduling, validation precision, and recall metrics.'
+                },
+                {
+                    src: 'assets/projects/netpoint/dataset_explorer_1789164089284.png',
+                    thumb: 'assets/projects/netpoint/dataset_explorer_1789164089284.png',
+                    title: 'Dataset Explorer & Token Distribution',
+                    desc: 'Statistical analysis of the 105,000+ Arabic review corpus, token lengths, and vocabulary distribution.'
+                },
+                {
+                    src: 'assets/projects/netpoint/english_view_1789164166919.png',
+                    thumb: 'assets/projects/netpoint/english_view_1789164166919.png',
+                    title: 'Multilingual UI & English Localization',
+                    desc: 'Full English interface support with live inference demonstration and model analytics.'
+                },
+                {
+                    src: 'assets/projects/netpoint/overview_scrolled_1789163909997.png',
+                    thumb: 'assets/projects/netpoint/overview_scrolled_1789163909997.png',
+                    title: 'System Preprocessing & Embedding Pipeline',
+                    desc: 'Arabic text normalization, tashkeel removal, custom tokenization, and vector embedding workflows.'
+                },
+                {
+                    src: 'assets/projects/netpoint/overview_bottom_1789163924275.png',
+                    thumb: 'assets/projects/netpoint/overview_bottom_1789163924275.png',
+                    title: 'Test Set Evaluation & Export Benchmarks',
+                    desc: 'Final test set validation, error analysis, inference latency benchmarks, and export options.'
+                }
+            ]
+        },
+        'eyego': {
+            title: 'Eyego — Real-Time Object Tracking',
+            badge: "Meta SAM 2.1 Tiny · Computer Vision",
+            github: 'https://github.com/mazenwaelx/eyogo-object-detection',
+            items: [
+                {
+                    src: 'assets/project-eyego.jpg',
+                    thumb: 'assets/project-eyego.jpg',
+                    title: 'SAM 2.1 Object Segmentation & Tracking',
+                    desc: 'Pixel-level segmentation and real-time GPU-accelerated object tracking with robust re-identification.'
+                }
+            ]
+        },
+        'marketmate': {
+            title: 'Market Mate',
+            badge: 'Full-Stack Marketplace · Microservices',
+            github: 'https://github.com/mazenwaelx/MarketMate',
+            items: [
+                {
+                    src: 'assets/project-marketmate.jpg',
+                    thumb: 'assets/project-marketmate.jpg',
+                    title: 'Market Mate Marketplace Platform',
+                    desc: 'Scalable marketplace backend with 15+ RESTful endpoints, MySQL B-tree indexing, and WebSocket alerts.'
+                },
+                {
+                    src: 'assets/project-marketmate.png',
+                    thumb: 'assets/project-marketmate.png',
+                    title: 'Architecture & System Infrastructure',
+                    desc: 'Containerized Linux microservices with Docker, Nginx reverse proxy, and GitHub Actions CI/CD.'
+                }
+            ]
+        },
+        'legal-ai': {
+            title: 'Egyptian Legal AI Assistant',
+            badge: 'RAG Pipeline · Gemini API & FAISS',
+            github: 'https://github.com/mazenwaelx/Grad-2.0v2',
+            items: [
+                {
+                    src: 'assets/project-legal-ai.png',
+                    thumb: 'assets/project-legal-ai.png',
+                    title: 'RAG Legal Assistant & Document Retrieval',
+                    desc: 'FastAPI and LangChain architecture providing sub-5s response latency with 100% test pass rate.'
+                }
+            ]
+        },
+        'airbnb': {
+            title: 'Airbnb Clone',
+            badge: 'Distributed REST API · MySQL',
+            github: 'https://github.com/mazenwaelx/Airbnb',
+            items: [
+                {
+                    src: 'assets/project-airbnb.png',
+                    thumb: 'assets/project-airbnb.png',
+                    title: 'Airbnb Clone Architecture',
+                    desc: 'Distributed booking API spanning 5 normalized relational models with comprehensive unit test coverage.'
+                }
+            ]
+        },
+        'heart-disease': {
+            title: 'Heart Disease Prediction',
+            badge: 'Machine Learning · 87% Accuracy',
+            github: 'https://github.com/mazenwaelx/Heart_Disease_Project',
+            items: [
+                {
+                    src: 'assets/project-heart-disease.png',
+                    thumb: 'assets/project-heart-disease.png',
+                    title: 'Clinical Diagnostic ML Visualizations',
+                    desc: '8 exploratory diagnostic visualizations and hyperparameter-tuned classification model.'
+                }
+            ]
+        },
+        'habit-tracker': {
+            title: 'Habit Tracker App',
+            badge: 'ASP.NET Core MVC · SQL Server',
+            github: 'https://github.com/mazenwaelx/Habit_Tracker',
+            items: [
+                {
+                    src: 'assets/project-habit-tracker.png',
+                    thumb: 'assets/project-habit-tracker.png',
+                    title: 'Habit Tracker Dashboard & Analytics',
+                    desc: 'ASP.NET Core MVC CRUD application with Entity Framework Core, SQL Server, and streak tracking.'
+                }
+            ]
+        }
+    };
+
+    // Modal DOM Elements
+    const galleryModal = document.getElementById('project-gallery-modal');
+    const modalBackdrop = document.getElementById('gallery-modal-backdrop');
+    const modalCloseBtn = document.getElementById('gallery-modal-close');
+    const modalBadge = document.getElementById('gallery-modal-badge');
+    const modalTitle = document.getElementById('gallery-modal-title');
+    const modalGithub = document.getElementById('gallery-modal-github');
+    const modalCounter = document.getElementById('gallery-modal-counter');
+    const modalImg = document.getElementById('gallery-modal-img');
+    const modalCaptionTitle = document.getElementById('gallery-caption-title');
+    const modalCaptionDesc = document.getElementById('gallery-caption-desc');
+    const modalCaption = document.getElementById('gallery-modal-caption');
+    const thumbsTrack = document.getElementById('gallery-thumbs-track');
+    const btnPrev = document.getElementById('gallery-btn-prev');
+    const btnNext = document.getElementById('gallery-btn-next');
+    const btnFullscreen = document.getElementById('gallery-modal-fullscreen');
+    const spinner = document.getElementById('gallery-spinner');
+
+    let currentProjectKey = null;
+    let currentSlideIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function openGallery(projectKey, startIndex = 0) {
+        const galleryData = PROJECT_GALLERIES[projectKey];
+        if (!galleryData || !galleryData.items || galleryData.items.length === 0) return;
+
+        currentProjectKey = projectKey;
+        currentSlideIndex = startIndex;
+
+        // Populate Header info
+        if (modalBadge) modalBadge.textContent = galleryData.badge || 'Project';
+        if (modalTitle) modalTitle.textContent = galleryData.title || 'Project Screenshots';
+        if (modalGithub) {
+            modalGithub.href = galleryData.github || 'https://github.com/mazenwaelx';
+        }
+
+        // Populate Thumbnails
+        if (thumbsTrack) {
+            thumbsTrack.innerHTML = '';
+            galleryData.items.forEach((item, idx) => {
+                const thumbBtn = document.createElement('div');
+                thumbBtn.className = `gallery-thumb-item ${idx === currentSlideIndex ? 'is-active' : ''}`;
+                thumbBtn.setAttribute('data-index', idx);
+                thumbBtn.setAttribute('title', item.title || `Screenshot ${idx + 1}`);
+
+                const thumbImg = document.createElement('img');
+                thumbImg.src = item.thumb || item.src;
+                thumbImg.alt = item.title || `Thumbnail ${idx + 1}`;
+                thumbImg.loading = 'lazy';
+
+                thumbBtn.appendChild(thumbImg);
+                thumbBtn.addEventListener('click', () => {
+                    goToSlide(idx);
+                });
+                thumbsTrack.appendChild(thumbBtn);
+            });
+        }
+
+        // Show navigation buttons if more than 1 item
+        const hasMultiple = galleryData.items.length > 1;
+        if (btnPrev) btnPrev.style.display = hasMultiple ? 'flex' : 'none';
+        if (btnNext) btnNext.style.display = hasMultiple ? 'flex' : 'none';
+        if (thumbsTrack && thumbsTrack.parentElement) {
+            thumbsTrack.parentElement.style.display = hasMultiple ? 'block' : 'none';
+        }
+
+        // Render current slide
+        renderSlide(currentSlideIndex);
+
+        // Open modal
+        if (galleryModal) {
+            galleryModal.classList.add('is-active');
+            galleryModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeGallery() {
+        if (!galleryModal) return;
+        galleryModal.classList.remove('is-active');
+        galleryModal.classList.remove('is-fullscreen');
+        galleryModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        currentProjectKey = null;
+    }
+
+    function renderSlide(index) {
+        if (!currentProjectKey) return;
+        const galleryData = PROJECT_GALLERIES[currentProjectKey];
+        if (!galleryData || !galleryData.items[index]) return;
+
+        const item = galleryData.items[index];
+        currentSlideIndex = index;
+
+        // Update counter
+        if (modalCounter) {
+            modalCounter.textContent = `${index + 1} / ${galleryData.items.length}`;
+        }
+
+        // Update Captions
+        if (modalCaptionTitle) modalCaptionTitle.textContent = item.title || '';
+        if (modalCaptionDesc) modalCaptionDesc.textContent = item.desc || '';
+        if (modalCaption) {
+            modalCaption.style.display = (item.title || item.desc) ? 'block' : 'none';
+        }
+
+        // Update active thumbnail
+        if (thumbsTrack) {
+            const thumbs = thumbsTrack.querySelectorAll('.gallery-thumb-item');
+            thumbs.forEach((t, i) => {
+                const isActive = i === index;
+                t.classList.toggle('is-active', isActive);
+                if (isActive) {
+                    t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            });
+        }
+
+        // Image Loading State
+        if (modalImg) {
+            modalImg.classList.add('is-loading');
+            if (spinner) spinner.classList.add('is-visible');
+
+            const tempImg = new Image();
+            tempImg.src = item.src;
+            tempImg.onload = () => {
+                modalImg.src = item.src;
+                modalImg.alt = item.title || 'Project Screenshot';
+                modalImg.classList.remove('is-loading');
+                if (spinner) spinner.classList.remove('is-visible');
+            };
+            tempImg.onerror = () => {
+                modalImg.src = item.src;
+                modalImg.classList.remove('is-loading');
+                if (spinner) spinner.classList.remove('is-visible');
+            };
+        }
+    }
+
+    function nextSlide() {
+        if (!currentProjectKey) return;
+        const galleryData = PROJECT_GALLERIES[currentProjectKey];
+        if (!galleryData) return;
+        const nextIdx = (currentSlideIndex + 1) % galleryData.items.length;
+        renderSlide(nextIdx);
+    }
+
+    function prevSlide() {
+        if (!currentProjectKey) return;
+        const galleryData = PROJECT_GALLERIES[currentProjectKey];
+        if (!galleryData) return;
+        const prevIdx = (currentSlideIndex - 1 + galleryData.items.length) % galleryData.items.length;
+        renderSlide(prevIdx);
+    }
+
+    function goToSlide(index) {
+        renderSlide(index);
+    }
+
+    // Event Listeners for opening gallery
+    document.querySelectorAll('.btn-open-gallery').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const projectKey = btn.getAttribute('data-project');
+            if (projectKey) {
+                openGallery(projectKey, 0);
+            }
+        });
+    });
+
+    // Also support clicking project cards directly to view gallery if not clicking a link
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('a') || e.target.closest('.btn-open-gallery')) {
+                return;
+            }
+            const projectKey = card.getAttribute('data-project-id');
+            if (projectKey && PROJECT_GALLERIES[projectKey]) {
+                openGallery(projectKey, 0);
+            }
+        });
+    });
+
+    // Close buttons & Backdrop
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeGallery);
+    }
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener('click', closeGallery);
+    }
+
+    // Navigation arrows
+    if (btnPrev) {
+        btnPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevSlide();
+        });
+    }
+    if (btnNext) {
+        btnNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextSlide();
+        });
+    }
+
+    // Fullscreen toggle
+    if (btnFullscreen && galleryModal) {
+        btnFullscreen.addEventListener('click', () => {
+            galleryModal.classList.toggle('is-fullscreen');
+            const isFull = galleryModal.classList.contains('is-fullscreen');
+            btnFullscreen.innerHTML = isFull ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+        });
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!galleryModal || !galleryModal.classList.contains('is-active')) return;
+
+        if (e.key === 'Escape') {
+            closeGallery();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+        } else if (e.key === 'ArrowLeft') {
+            prevSlide();
+        } else if (e.key === 'f' || e.key === 'F') {
+            if (btnFullscreen) btnFullscreen.click();
+        }
+    });
+
+    // Touch Swipe navigation on gallery main stage
+    const mainStage = document.querySelector('.gallery-main-stage');
+    if (mainStage) {
+        mainStage.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        mainStage.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            nextSlide();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            prevSlide();
+        }
+    }
 });
+
