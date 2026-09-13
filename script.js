@@ -338,15 +338,63 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'legal-ai': {
-            title: 'Egyptian Legal AI Assistant',
+            title: 'Egyptian Legal AI & LawyerConnect',
             badge: 'RAG Pipeline · Gemini API & FAISS',
             github: 'https://github.com/mazenwaelx/Grad-2.0v2',
             items: [
                 {
-                    src: 'assets/project-legal-ai.png',
-                    thumb: 'assets/project-legal-ai.png',
-                    title: 'RAG Legal Assistant & Document Retrieval',
-                    desc: 'FastAPI and LangChain architecture providing sub-5s response latency with 100% test pass rate.'
+                    src: 'assets/projects/legal-ai/ai_chat_assistant_app_1789315922195.png',
+                    thumb: 'assets/projects/legal-ai/ai_chat_assistant_app_1789315922195.png',
+                    title: 'AI Legal Assistant & Document Analysis',
+                    desc: 'Specialized Egyptian Labour Law RAG system with ReAct reasoning, article citation, and document OCR analysis.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/hero_section_1789315705632.png',
+                    thumb: 'assets/projects/legal-ai/hero_section_1789315705632.png',
+                    title: 'LawyerConnect Platform & Hero Landing',
+                    desc: 'Modern dark theme landing page with search by sector, client matchmaking, and consultation booking.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/lawyers_directory_page_1789315837227.png',
+                    thumb: 'assets/projects/legal-ai/lawyers_directory_page_1789315837227.png',
+                    title: 'Lawyer Directory & Specialization Filter',
+                    desc: 'Lawyer directory with filtering across Egyptian legal sectors (Labor, Corporate, Criminal, Family, Real Estate) and verification badges.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/lawyers_directory_grid_1789315863863.png',
+                    thumb: 'assets/projects/legal-ai/lawyers_directory_grid_1789315863863.png',
+                    title: 'Verified Lawyer Cards & Client Ratings',
+                    desc: 'Verified legal practitioner cards displaying star ratings, active cases, office locations, and direct booking.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/lawyer_profile_header_1789315772434.png',
+                    thumb: 'assets/projects/legal-ai/lawyer_profile_header_1789315772434.png',
+                    title: 'Lawyer Profile & Accreditation',
+                    desc: 'Detailed attorney profile with bar registration numbers, practice areas, bio, and hourly rates.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/lawyer_profile_page_1789315758777.png',
+                    thumb: 'assets/projects/legal-ai/lawyer_profile_page_1789315758777.png',
+                    title: 'Client Reviews & Consultation Booking',
+                    desc: 'Interactive booking scheduling system with client feedback, ratings breakdown, and consultation calendar.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/features_services_1789315711551.png',
+                    thumb: 'assets/projects/legal-ai/features_services_1789315711551.png',
+                    title: 'Platform Features & Capabilities',
+                    desc: 'Overview of digital contract review, verified legal advice, emergency consultations, and encrypted communications.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/legal_sectors_how_it_works_1789315718349.png',
+                    thumb: 'assets/projects/legal-ai/legal_sectors_how_it_works_1789315718349.png',
+                    title: 'How It Works & Security Architecture',
+                    desc: 'Step-by-step onboarding flow for clients and lawyers with end-to-end security compliance.'
+                },
+                {
+                    src: 'assets/projects/legal-ai/ai_response_fullpage_1789315602413.png',
+                    thumb: 'assets/projects/legal-ai/ai_response_fullpage_1789315602413.png',
+                    title: 'Interactive Legal Consultation & Multi-Session History',
+                    desc: 'Arabic conversational legal reasoning session citing Law 14 of 2025 with multi-session history sidebar.'
                 }
             ]
         },
